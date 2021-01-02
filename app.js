@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 var listID = "6eab828ee5";
-var apiKey = "32afb6ec00785a33815ae9b4b70ca43d-us7j";
+var apiKey = "32afb6ec00785a33815ae9b4b70ca43d-us7";
 
 app.use(express.static("public")); //let's express acces static objects
 app.use(bodyParser.urlencoded({extended: true})); //allows for access of form results
