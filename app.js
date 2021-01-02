@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true})); //allows for access of form re
 
 
 app.get("/", function(req, res){
-  res.sendFile(__dirname+"/signup.html")
+  res.sendFile(__dirname+"/signup.html");
 });
 
 app.post("/", function(req, res){
@@ -43,18 +43,18 @@ app.post("/", function(req, res){
 
 // Make http request
   const request = https.request(url, options, function(response){
+    console.log(response.statusCode);
     if (response.statusCode === 200){
       //res.send("Successfully subscribed!");
-      res.sendFile(__dirname+"/success.html")
+      res.sendFile(__dirname+"/success.html");
     } else {
       //res.send("Error in signup");
-      res.sendFile(__dirname+"/failure.html")
-
-    }
+      res.sendFile(__dirname+"/failure.html");
+    };
     response.on("data", function(data){
-      console.log(JSON.parse(data));
-    })
-  })
+      //console.log(JSON.parse(data));
+    });
+  });
 
   //request.write(jsonData);
   request.end();
@@ -64,7 +64,7 @@ app.post("/", function(req, res){
 // On fail, let button redirect to home page
 app.post("/failure", function(req, res){
   res.redirect("/");
-})
+});
 
 
 //Dynamic PORT defined by Heroku servers, or 3000
